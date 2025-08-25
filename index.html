@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Mom! 🎉</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Background particles */
+    .background-particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -2;
+    }
+
+    .particle {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      animation: float-particles 20s infinite linear;
+    }
+
+    .card-container {
+      width: 95%;
+      max-width: 420px;
+      margin: 10px;
+    }
+
+    .birthday-card {
+      width: 100%;
+      min-height: 600px;
+      border-radius: 25px;
+      background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+      box-shadow: 0 25px 60px rgba(0,0,0,0.3), 0 10px 30px rgba(0,0,0,0.2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 30px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .birthday-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="hearts" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><text x="10" y="15" text-anchor="middle" font-size="12" fill="rgba(255,182,193,0.3)">♡</text></pattern></defs><rect width="100" height="100" fill="url(%23hearts)"/></svg>');
+      opacity: 0.3;
+      z-index: 1;
+    }
+
+    .card-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .main-title {
+      font-family: 'Dancing Script', cursive;
+      font-size: 3.2em;
+      font-weight: 700;
+      margin-bottom: 15px;
+      background: linear-gradient(45deg, #e74c3c, #f39c12, #e91e63);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      animation: gentle-bounce 3s ease-in-out infinite;
+    }
+
+    .decorative-line {
+      width: 80px;
+      height: 3px;
+      background: linear-gradient(45deg, #e74c3c, #f39c12);
+      margin: 20px auto;
+      border-radius: 2px;
+    }
+
+    .elegant-icon {
+      font-size: 4em;
+      margin: 25px 0;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+      animation: gentle-rotate 4s ease-in-out infinite;
+    }
+
+    .message-text {
+      font-size: 1.1em;
+      line-height: 1.7;
+      margin: 20px 0;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+    }
+
+    .signature {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.4em;
+      font-weight: 600;
+      margin-top: 30px;
+      color: #e74c3c;
+    }
+
+    /* Floating elements */
+    .floating-elements {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .floating-heart {
+      position: absolute;
+      font-size: 1.5em;
+      animation: elegant-float 12s infinite linear;
+      opacity: 0.6;
+    }
+
+    /* Animations */
+    @keyframes gentle-bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    @keyframes gentle-rotate {
+      0%, 100% { transform: rotate(0deg) scale(1); }
+      25% { transform: rotate(-3deg) scale(1.05); }
+      75% { transform: rotate(3deg) scale(1.05); }
+    }
+
+    @keyframes elegant-float {
+      0% {
+        transform: translateY(100vh) translateX(0) rotate(0deg);
+        opacity: 0;
+      }
+      10% { opacity: 0.6; }
+      90% { opacity: 0.6; }
+      100% {
+        transform: translateY(-200px) translateX(100px) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes float-particles {
+      0% {
+        transform: translateY(100vh) translateX(0) rotate(0deg);
+        opacity: 0;
+      }
+      10% { opacity: 0.3; }
+      90% { opacity: 0.3; }
+      100% {
+        transform: translateY(-100px) translateX(200px) rotate(180deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="background-particles" id="particles"></div>
+  <div class="floating-elements" id="floatingElements"></div>
+
+  <div class="card-container">
+    <div class="birthday-card">
+      <div class="card-content">
+        <div class="elegant-icon">🌹</div>
+        <h1 class="main-title">Happy Birthday Amma</h1>
+        <div class="decorative-line"></div>
+        <p class="message-text">To the most wonderful mother<br>in the world</p>
+        <div class="elegant-icon" style="font-size: 2.5em; margin: 20px 0;">💝</div>
+        <p class="message-text">
+         Wish You Happy Birth Day Mom.  
+        </p>
+        <p class="signature">
+          With all my love,<br>
+          Your loving child 💕
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Floating elements
+    const container = document.getElementById('floatingElements');
+    const hearts = ['💕', '💖', '💗', '🌸', '🌺', '✨', '🦋'];
+
+    const createFloatingHeart = () => {
+      const heart = document.createElement('div');
+      heart.className = 'floating-heart';
+      heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+      heart.style.left = Math.random() * 100 + '%';
+      heart.style.fontSize = (Math.random() * 0.8 + 1.2) + 'em';
+      heart.style.animationDuration = (Math.random() * 6 + 8) + 's';
+      container.appendChild(heart);
+
+      setTimeout(() => heart.remove(), 14000);
+    };
+
+    setInterval(createFloatingHeart, 3000);
+    for (let i = 0; i < 3; i++) setTimeout(createFloatingHeart, i * 2000);
+
+    // Background particles
+    const particles = document.getElementById('particles');
+    for (let i = 0; i < 15; i++) {
+      const particle = document.createElement('div');
+      particle.className = 'particle';
+      particle.style.left = Math.random() * 100 + '%';
+      particle.style.width = particle.style.height = (Math.random() * 4 + 2) + 'px';
+      particle.style.animationDuration = (Math.random() * 15 + 10) + 's';
+      particle.style.animationDelay = Math.random() * 5 + 's';
+      particles.appendChild(particle);
+    }
+  </script>
+</body>
+</html>
